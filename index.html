@@ -339,7 +339,7 @@
 
         function spawnPowerUp(x, y) {
             // Probabilidad reducida al 10%
-            if (Math.random() < 0.1) {
+            if (Math.random() < 0.05) {
                 const types = ['shield', 'rapidFire', 'bomb'];
                 powerUps.push({
                     x: x,
@@ -400,7 +400,7 @@
                         bullet.y + bullet.height > enemy.y) {
                         bullets.splice(bIndex, 1);
                         enemies.splice(eIndex, 1);
-                        score += 100;
+                        score += 10;
                         createParticles(enemy.x + enemy.width/2, enemy.y + enemy.height/2, '#ff00ff', 10);
                         spawnPowerUp(enemy.x + enemy.width/2, enemy.y + enemy.height/2);
                     }
@@ -483,7 +483,7 @@
 
                 // Disparo enemigo - REDUCIDO: intervalo más largo y probabilidad menor
                 enemy.shootTimer++;
-                if (enemy.shootTimer > 180 + Math.random() * 240) { // Mucho más espaciado
+                if (enemy.shootTimer > 180 + Math.random() * 480) { // Mucho más espaciado
                     if (Math.random() < 0.3) { // Solo 30% de probabilidad adicional
                         enemyShoot(enemy);
                     }
